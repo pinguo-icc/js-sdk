@@ -1,7 +1,7 @@
 /*
  * @Author: komens
  * @Date: 2023-05-05 17:22:14
- * @LastEditTime: 2023-05-16 11:35:14
+ * @LastEditTime: 2023-05-16 12:00:05
  * @LastEditors: komens
  */
 module.exports = {
@@ -14,6 +14,7 @@ module.exports = {
       },
     },
   },
+  base: '/js-sdk-docs/',
   themeConfig: {
     repo: "https://github.com/pinguo-icc/js-sdk",
     nav: [
