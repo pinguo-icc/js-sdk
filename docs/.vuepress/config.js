@@ -14,8 +14,6 @@ module.exports = {
       },
     },
   },
-  base: "/js-sdk/",
-  dest: "docs-dist",
   themeConfig: {
     repo: "https://github.com/pinguo-icc/js-sdk",
     nav: [
