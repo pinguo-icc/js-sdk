@@ -1,7 +1,7 @@
 /*
  * @Author: komens
  * @Date: 2023-05-05 17:22:14
- * @LastEditTime: 2023-05-16 12:00:05
+ * @LastEditTime: 2023-05-16 14:23:28
  * @LastEditors: komens
  */
 module.exports = {
@@ -14,9 +14,16 @@ module.exports = {
       },
     },
   },
-  base: '/js-sdk-docs/',
+  base: "/js-sdk-docs/",
   themeConfig: {
-    repo: "https://github.com/pinguo-icc/js-sdk",
+    repo: "pinguo-icc/js-sdk",
+    docsBranch: "main",
+    docsDir: "/docs/",
+    editLinks: true,
+    smoothScroll: true,
+    selectText: "选择语言",
+    lastUpdated: "上次更新",
+    editLinkText: "在 GitHub 上编辑此页",
     nav: [
       { text: "首页", link: "/" },
       { text: "指南", link: "/guide/" },
@@ -36,4 +43,14 @@ module.exports = {
       ],
     },
   },
+  plugins: [
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp, lang) => {
+          return new Date(timestamp).toLocaleString();
+        }
+      }
+    ]
+  ]
 };
