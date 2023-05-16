@@ -1,0 +1,21 @@
+export declare enum EBridgeType {
+    CLOSE = "closeWebView",
+    GET_USER_INFO = "getUserInfo",
+    LOGIN = "doLogin",
+    GET_COMMON_PARAMS = "getCommonParams",
+    SAVE_FILE = "saveImageToAlbum",
+    QR_CODE_PARSER = "callQRParser",
+    SIGN = "sign",
+    SET_BAR_STATUS = "setNativeBarStatus",
+    SHOW_TOAST = "showHint",
+    QR_CODE_CLOSE = "closeQRParser",
+    SET_LOADING = "setLoadingStatus",
+    CALL_PHOTO_PICKER = "callPhotoPicker",
+    REPORT_EVENT = "reportEvent",
+    PURCHASE = "purchase",
+    GET_APP_PRODUCT_INFO = "getIAPProductInfo",
+    PURCHASE_COMPLETE = "completePurchase",
+    SET_STORAGE = "setH5Cache",
+    GET_STORAGE = "getH5Cache",
+    SET_INPUT_FILE_ATTRIBUTES = "setInputFileAttributes"
+}

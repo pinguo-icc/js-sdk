@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>客户端通讯能力 | 前端工具库</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="PGTools">
+    
+    <link rel="preload" href="/assets/css/0.styles.e8e4f3a3.css" as="style"><link rel="preload" href="/assets/js/app.996560f7.js" as="script"><link rel="preload" href="/assets/js/2.82c97058.js" as="script"><link rel="preload" href="/assets/js/10.22d140f7.js" as="script"><link rel="prefetch" href="/assets/js/3.be081678.js"><link rel="prefetch" href="/assets/js/4.e17183ed.js"><link rel="prefetch" href="/assets/js/5.d98755ae.js"><link rel="prefetch" href="/assets/js/6.32069b6c.js"><link rel="prefetch" href="/assets/js/7.48373adc.js"><link rel="prefetch" href="/assets/js/8.b5ba0cdf.js"><link rel="prefetch" href="/assets/js/9.6b9cc679.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e8e4f3a3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端工具库</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="/api/" class="nav-link">
+  API
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="/api/" class="nav-link">
+  API
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/" aria-current="page" class="sidebar-link">介绍</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>能力模块</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/bridge.html" aria-current="page" class="active sidebar-link">客户端通讯能力</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/bridge.html#方法" class="sidebar-link">方法</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="客户端通讯能力"><a href="#客户端通讯能力" class="header-anchor">#</a> 客户端通讯能力</h1> <p>bridge 作为与 APP 段通讯所提供的能力模块，为开发者提供了以下能力：</p> <ul><li>关闭 webView <code>CLOSE</code></li> <li>获取用户信息 <code>GET_USER_INFO</code></li> <li>调用登陆 <code>LOGIN</code></li> <li>获取公共参数 <code>GET_COMMON_PARAMS</code></li> <li>保存图片到相册 <code>SAVE_IMAGE</code></li> <li>参数签名 <code>SIGN</code></li> <li>展示提示 <code>SHOW_TOAST</code></li> <li>原生返回按钮控制 <code>SET_BAR_STATUS</code></li> <li>关闭二维码解析 <code>QR_CODE_CLOSE</code></li> <li>设置 Loading 状态 <code>SET_LOADING</code></li> <li>调起 Blurrr 图片/视频选中页面 <code>CALL_PHOTO_PICKER</code></li> <li>埋点上报 <code>REPORT_EVENT</code></li> <li>查询应用内购买商品信息 <code>GET_APP_PRODUCT_INFO</code></li> <li>购买订单 <code>PURCHASE</code></li> <li>可消耗商品完成处理 <code>PURCHASE_COMPLETE</code></li> <li>设置应用内缓存 <code>SET_STORAGE</code></li> <li>获取应用内缓存 <code>GET_STORAGE</code></li> <li>设置是否对选择的图片进行处理 <code>SET_INPUT_FILE_ATTRIBUTES</code></li></ul> <h2 id="方法"><a href="#方法" class="header-anchor">#</a> 方法</h2> <h3 id="run-type-data-callback"><a href="#run-type-data-callback" class="header-anchor">#</a> run({ type, data, callback })</h3> <ul><li><strong>参数</strong>：
+<ul><li>{EBridgeType} type 事件类型</li></ul></li></ul> <p>这是客户端通讯的基础能力，我们可以通过传入不同的</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/" class="prev router-link-active">
+        介绍
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.996560f7.js" defer></script><script src="/assets/js/2.82c97058.js" defer></script><script src="/assets/js/10.22d140f7.js" defer></script>
+  </body>
+</html>
