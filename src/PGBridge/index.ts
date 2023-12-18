@@ -1,3 +1,4 @@
+import { EBridgeType } from './constants';
 import { BaseBridge } from './model/BaseBridge';
 import BlurrrIosBridge from './model/BlurrrIosBridge';
 import BlurrrWebBridge from './model/BlurrrWebBridge';
@@ -8,6 +9,8 @@ class PGBridge {
     'blurrr-ios': BlurrrIosBridge,
     'blurrr-web': BlurrrWebBridge,
   };
+
+  static EBridgeType = EBridgeType;
 
   static createBridge(app: string, platform: string = this.getPlatform()): IBridge {
     const bridgeKey = `${app}-${platform}` as ObjectKeys<typeof PGBridge.bridgeMap>;
