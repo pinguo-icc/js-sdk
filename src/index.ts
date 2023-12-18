@@ -5,7 +5,7 @@
  * @LastEditors: komens
  */
 
-import bridge from "./bridge";
+import bridge from "./PGBridge";
 
 export const PGBridge = bridge;
 

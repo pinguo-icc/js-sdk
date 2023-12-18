@@ -1,9 +1,6 @@
-export declare const PGBridge: {
-    run: typeof import("./bridge").bridgeCall;
-};
+import bridge from "./PGBridge";
+export declare const PGBridge: typeof bridge;
 declare const _default: {
-    bridge: {
-        run: typeof import("./bridge").bridgeCall;
-    };
+    bridge: typeof bridge;
 };
 export default _default;

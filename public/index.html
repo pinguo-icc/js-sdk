@@ -1,7 +1,7 @@
 <!--
  * @Author: komens
  * @Date: 2023-04-02 21:38:59
- * @LastEditTime: 2023-04-02 21:48:11
+ * @LastEditTime: 2023-06-08 14:28:12
  * @LastEditors: komens
 -->
 <!DOCTYPE html>
@@ -11,12 +11,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./PGTools.umd.js"></script>
   </head>
   <body>
     <button onclick="onBtnClick">测试</button>
   </body>
   <script>
-    sayHi("Komens");
+    function formateVersion(v) {
+      let preVal = 99;
+      v = v.replace(/^v/, "");
+
+      const parts = v.split(".", 3);
+
+      var parsePreRelease = function (v) {
+        v = v.toLowerCase();
+        let preIdx = -1;
+        let r;
+        let ri;
+
+        for (let i = 0; i < preRelease.length; i++) {
+          if (v.startsWith(preRelease[i])) {
+            preIdx = i;
+            r = v.replace(preRelease[i], "");
+            r = r.replace(/^\./, "");
+            break;
+          }
+        }
+
+        if (preIdx === -1) {
+          throw new Error("invalid param");
+        }
+
+        if (r !== "") {
+          try {
+            ri = parseInt(r);
+          } catch (e) {
+            throw new Error("invalid param");
+          }
+
+          if (isNaN(ri) || ri < 0 || ri > 9) {
+            throw new Error("invalid param");
+          }
+        }
+
+        return (preIdx + 1) * 10 + ri;
+      };
+
+      if (parts.length !== 3) {
+        throw new Error("invalid param");
+      }
+
+      for (let i = 0; i < 3; i++) {
+        if (parts[i].startsWith("-")) {
+          throw new Error("invalid param");
+        }
+      }
+
+      let major, minor, patch;
+      try {
+        major = parseInt(parts[0]);
+        minor = parseInt(parts[1]);
+      } catch (e) {
+        throw new Error("invalid param");
+      }
+
+      if (isNaN(major) || isNaN(minor)) {
+        throw new Error("invalid param");
+      }
+
+      try {
+        if (parts[2].includes("-")) {
+          const s = parts[2].split("-", 2);
+
+          if (s.length !== 2) {
+            throw new Error("invalid param");
+          }
+
+          parts[2] = s[0];
+          preVal = parsePreRelease(s[1]);
+        }
+
+        patch = parseInt(parts[2]);
+      } catch (e) {
+        throw new Error("invalid param");
+      }
+
+      if (isNaN(patch)) {
+        throw new Error("invalid param");
+      }
+
+      if (major === 0 && minor === 0 && patch === 0) {
+        throw new Error("invalid param");
+      }
+
+      if (minor > 999 || patch > 999) {
+        throw new Error("invalid param, too big");
+      }
+
+      const m = 1e8;
+      const mi = 1e5;
+      const p = 100;
+
+      const ver = major * m + minor * mi + patch * p + preVal;
+
+      return ver;
+    }
   </script>
 </html>

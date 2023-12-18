@@ -1,7 +1,7 @@
 /*
  * @Author: komens
  * @Date: 2023-05-05 17:22:14
- * @LastEditTime: 2023-05-16 14:23:28
+ * @LastEditTime: 2023-06-13 16:31:09
  * @LastEditors: komens
  */
 module.exports = {
@@ -27,6 +27,7 @@ module.exports = {
     nav: [
       { text: "首页", link: "/" },
       { text: "指南", link: "/guide/" },
+      { text: "运营配置", link: "/ops/blurrr" },
     ],
     sidebar: {
       "/guide/": [
@@ -40,6 +41,13 @@ module.exports = {
           collapsable: false,
           children: ["bridge"],
         },
+      ],
+      "/ops/": [
+        {
+          title: "blurrr字段配置",
+          collapsable: false,
+          children: ["blurrr"],
+        }
       ],
     },
   },

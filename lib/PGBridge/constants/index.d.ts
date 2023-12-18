@@ -1,3 +1,6 @@
+/**
+ * # 客户端通讯支持的事件类型
+ */
 export declare enum EBridgeType {
     CLOSE = "closeWebView",
     GET_USER_INFO = "getUserInfo",
@@ -11,11 +14,20 @@ export declare enum EBridgeType {
     QR_CODE_CLOSE = "closeQRParser",
     SET_LOADING = "setLoadingStatus",
     CALL_PHOTO_PICKER = "callPhotoPicker",
-    REPORT_EVENT = "reportEvent",
     PURCHASE = "purchase",
     GET_APP_PRODUCT_INFO = "getIAPProductInfo",
-    PURCHASE_COMPLETE = "completePurchase",
-    SET_STORAGE = "setH5Cache",
-    GET_STORAGE = "getH5Cache",
-    SET_INPUT_FILE_ATTRIBUTES = "setInputFileAttributes"
+    REPORT_EVENT = "reportEvent",
+    START_QR_SCAN = "startQRScan",
+    STOP_QR_SCAN = "stopQRScan",
+    REFRESH_CLIENT_DATA = "refreshUserProjectsAndPresets",
+    GET_CURRENT_ENV = "getCurrentEnv",
+    GET_H5_CACHE = "getH5Cache",
+    SET_H5_CACHE = "setH5Cache",
+    PLAY_VIDEO = "playVideo"
+}
+export declare enum Environment {
+    Prod = "release",
+    QA = "qa",
+    Dev = "dev",
+    Pre = "operation"
 }
