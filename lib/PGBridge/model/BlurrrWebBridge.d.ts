@@ -1,6 +1,6 @@
-import { EBridgeType } from '../constants';
-import { IBridge } from '../types/bridge';
-import { BaseBridge } from './BaseBridge';
+import { EBridgeType } from "../constants";
+import { IBridge } from "../types/bridge";
+import { BaseBridge } from "./BaseBridge";
 export default class BlurrrWebBridge extends BaseBridge implements IBridge {
     get(type: EBridgeType): () => void;
     execute(type: EBridgeType, dataStr: string): void;
@@ -40,30 +40,7 @@ export default class BlurrrWebBridge extends BaseBridge implements IBridge {
         balanceJuice: number;
         userToken: string;
     }>;
-    getCommonParams(): Promise<{
-        'PG-AppID': string;
-        'PG-AppVersion': string;
-        'PG-Channel': string;
-        'PG-DataEnv': any;
-        'PG-Debug': string;
-        'PG-EID': string;
-        'PG-ENCB': string;
-        'PG-ENCH': string;
-        'PG-FA': string;
-        'PG-InitStamp': string;
-        'PG-Language': string;
-        'PG-Locale': string;
-        'PG-Model': string;
-        'PG-Network': string;
-        'PG-OSVersion': string;
-        'PG-Platform': string;
-        'PG-ScreenSize': string;
-        'PG-Time': string;
-        'PG-UpgradeStamp': string;
-        'PG-UserID': string;
-        'PG-UserToken': string;
-        'PG-UtcOffset': string;
-    }>;
+    getCommonParams(defaultParams: any): Promise<any>;
     sign(data: TJson): Promise<string>;
     showToast(text: string): Promise<void>;
     getEnvironment(): Promise<any>;

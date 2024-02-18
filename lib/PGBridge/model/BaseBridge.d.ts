@@ -8,14 +8,14 @@ export declare class BaseBridge implements IBridge {
      * # 获取客户端注入的方法
      * @param type EBridgeType
      * @returns Function
-     * @remark 一般只需要重构此方法来实现不同平台的兼容
+     * @remark 一般只需要重构 get 和 execute 方法来实现不同平台的兼容
      */
     get(type: EBridgeType): any;
     /**
      * # 执行客户端注入的方法
      * @param type EBridgeType
      * @param type string
-     * @remark 一般只需要重构此方法来实现不同平台的兼容
+     * @remark 一般只需要重构 get 和 execute 方法来实现不同平台的兼容
      */
     execute(type: EBridgeType, dataStr: string): any;
     /**
@@ -54,7 +54,7 @@ export declare class BaseBridge implements IBridge {
     /**
      * # 获取客户端的公共参数
      */
-    getCommonParams(): Promise<TJson>;
+    getCommonParams(defaultParams?: TObjectKey): Promise<TJson>;
     /**
      * # 通过链接保存文件到本地
      * @param url string
