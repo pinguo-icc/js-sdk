@@ -37,8 +37,9 @@ export interface IBridge {
 
   /**
    * # 获取客户端的公共参数
+   * @param defaultParams Object 默认参数
    */
-  getCommonParams(): Promise<TJson>;
+  getCommonParams(defaultParams?:TObjectKey): Promise<TJson>;
 
   /**
    * # 通过链接保存文件到本地
