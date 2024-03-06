@@ -401,21 +401,38 @@ export class BaseBridge implements IBridge {
     });
   }
 
+  /**
+   * # iOS顶部刘海颜色设置
+   * @param style
+   */
   setStatusBarStyle(style: string) {
     return this.bridgeCall(EBridgeType.SET_STATUS_BAR_STYLE, {
       style,
     });
   }
 
+  /**
+   * # 显示客户端销售页
+   */
+
   showSalesPage() {
     return this.bridgeCall(EBridgeType.SHOW_SALES_PAGE, {});
   }
 
+  /**
+   * #网络变化通知
+   * @param notifyType
+   */
   registerNotify(notifyType = "network") {
     return this.bridgeCall(EBridgeType.REGISTER_NOTIFY, {
       notifyType,
     });
   }
+
+  /**
+   * # 调用客户端分享
+   * @param text
+   */
 
   doShare(text: string) {
     return this.bridgeCall(EBridgeType.DO_SHARE, {
