@@ -1,6 +1,6 @@
-import { JSONParse, JSONStringify } from '../common/tool';
-import { EBridgeType, Environment } from '../constants';
-import { IBridge, IVideoPlayProps, TBridgeConfigProps } from '../types/bridge';
+import { JSONParse, JSONStringify } from "../common/tool";
+import { EBridgeType, Environment } from "../constants";
+import { IBridge, IVideoPlayProps, TBridgeConfigProps } from "../types/bridge";
 
 /**
  * # 客户端通讯 基础Model
@@ -13,7 +13,11 @@ export class BaseBridge implements IBridge {
    * @remark 一般只需要重构 get 和 execute 方法来实现不同平台的兼容
    */
   get(type: EBridgeType) {
-    return window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers[type]?.postMessage;
+    return (
+      window.webkit &&
+      window.webkit.messageHandlers &&
+      window.webkit.messageHandlers[type]?.postMessage
+    );
   }
 
   /**
@@ -44,8 +48,12 @@ export class BaseBridge implements IBridge {
    * @param dataStr JSONString
    * @returns
    */
-  bridgeCall(type: EBridgeType, data: TJson = {}, config: TBridgeConfigProps = {}): Promise<any> {
-    if (typeof this.get(type) !== 'function') {
+  bridgeCall(
+    type: EBridgeType,
+    data: TJson = {},
+    config: TBridgeConfigProps = {}
+  ): Promise<any> {
+    if (typeof this.get(type) !== "function") {
       console.error(new Error(`不存在type为${type}的方法可供调用！`));
       return Promise.reject({ message: `invalid ${type} method` });
     }
@@ -59,7 +67,7 @@ export class BaseBridge implements IBridge {
         if (hasCallback) {
           const callbackName: string = this.getUniqueID();
           newPayload.callback = callbackName;
-          if (typeof defaultFun != 'function') {
+          if (typeof defaultFun != "function") {
             callbackFun = (data: any) => {
               // 回调完成后删除全局注入的callback
               const res = JSONParse(data);
@@ -74,7 +82,7 @@ export class BaseBridge implements IBridge {
         }
         let payloadStr = JSONStringify(newPayload);
         this.execute(type, payloadStr);
-        if (typeof defaultFun == 'function') {
+        if (typeof defaultFun == "function") {
           resolve({});
         }
       } catch (err) {
@@ -113,7 +121,7 @@ export class BaseBridge implements IBridge {
   /**
    * # 获取客户端的公共参数
    */
-  getCommonParams(defaultParams?:TObjectKey): Promise<TJson> {
+  getCommonParams(defaultParams?: TObjectKey): Promise<TJson> {
     return this.bridgeCall(EBridgeType.GET_COMMON_PARAMS);
   }
 
@@ -123,7 +131,7 @@ export class BaseBridge implements IBridge {
    */
   saveFileByUrl(url: string) {
     return this.bridgeCall(EBridgeType.SAVE_FILE, {
-      type: 'url',
+      type: "url",
       data: url,
     });
   }
@@ -134,7 +142,7 @@ export class BaseBridge implements IBridge {
    */
   saveFileByBase64(base64: string) {
     return this.bridgeCall(EBridgeType.SAVE_FILE, {
-      type: 'base64',
+      type: "base64",
       data: base64,
     });
   }
@@ -149,7 +157,7 @@ export class BaseBridge implements IBridge {
       {},
       {
         callbackFun: callback,
-      },
+      }
     );
   }
 
@@ -195,7 +203,7 @@ export class BaseBridge implements IBridge {
       },
       {
         hasCallback: false,
-      },
+      }
     );
   }
 
@@ -210,7 +218,7 @@ export class BaseBridge implements IBridge {
       },
       {
         hasCallback: false,
-      },
+      }
     );
   }
 
@@ -245,7 +253,7 @@ export class BaseBridge implements IBridge {
    * # 购买订单
    * @alpha 目前只有camera360实现
    */
-  purchase(productId: string, method: 'iap' | 'wechat' | 'alipay') {
+  purchase(productId: string, method: "iap" | "wechat" | "alipay") {
     return this.bridgeCall(EBridgeType.PURCHASE, {
       productId,
       method,
@@ -281,7 +289,7 @@ export class BaseBridge implements IBridge {
       {},
       {
         hasCallback: false,
-      },
+      }
     );
   }
 
@@ -300,7 +308,7 @@ export class BaseBridge implements IBridge {
   getCache(key?: string) {
     try {
       return this.bridgeCall(EBridgeType.GET_H5_CACHE).then((res) => {
-        const cache = JSONParse(res || '{}') || {};
+        const cache = JSONParse(res || "{}") || {};
         return Promise.resolve(key ? cache[key] : cache);
       });
     } catch (e) {
@@ -339,5 +347,79 @@ export class BaseBridge implements IBridge {
    */
   async playVideoByApp(data: IVideoPlayProps) {
     return this.bridgeCall(EBridgeType.PLAY_VIDEO, { data });
+  }
+
+  /**
+   * # 客户端识别
+   * @param callback
+   * @param keyword
+   * @param page
+   */
+  doScan(callback: Function, keyword?: string, page?: string) {
+    return this.bridgeCall(EBridgeType.DO_SCAN, {
+      callback,
+      keyword,
+      page,
+    });
+  }
+
+  /**
+   * # 保存用户资源
+   * @param callback
+   * @param type
+   * @param id
+   */
+  saveResource(type: string, id: string) {
+    return this.bridgeCall(EBridgeType.SAVE_RESOURCE, {
+      type,
+      id,
+    });
+  }
+
+  /**
+   * # 应用用户资源
+   * @param callback
+   * @param type
+   * @param id
+   */
+  applyResource(type: string, id: string) {
+    return this.bridgeCall(EBridgeType.APPLY_RESOURCE, {
+      type,
+      id,
+    });
+  }
+
+  /**
+   * # 资源缓存(图片|视频)
+   * @param url
+   * @param key
+   */
+  doLocalCache(url: string[], key: string) {
+    return this.bridgeCall(EBridgeType.DO_LOCAL_CACHE, {
+      url,
+      key,
+    });
+  }
+
+  setStatusBarStyle(style: string) {
+    return this.bridgeCall(EBridgeType.SET_STATUS_BAR_STYLE, {
+      style,
+    });
+  }
+
+  showSalesPage() {
+    return this.bridgeCall(EBridgeType.SHOW_SALES_PAGE, {});
+  }
+
+  registerNotify(notifyType = "network") {
+    return this.bridgeCall(EBridgeType.REGISTER_NOTIFY, {
+      notifyType,
+    });
+  }
+
+  doShare(text: string) {
+    return this.bridgeCall(EBridgeType.DO_SHARE, {
+      text,
+    });
   }
 }

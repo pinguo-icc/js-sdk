@@ -24,6 +24,14 @@ export enum EBridgeType {
   GET_H5_CACHE = 'getH5Cache', //获取H5缓存
   SET_H5_CACHE = 'setH5Cache', //设置H5缓存
   PLAY_VIDEO = 'playVideo',
+  DO_SCAN='doScan',// 客户端识别
+  SAVE_RESOURCE='saveResource',// 保存用户资源
+  APPLY_RESOURCE='applyResource',// 应用用户资源
+  DO_LOCAL_CACHE='doLocalCache'  ,// 资源缓存(图片|视频)
+  SET_STATUS_BAR_STYLE='setStatusBarStyle',// iOS顶部刘海颜色设置
+  SHOW_SALES_PAGE='showSalesPage',// 显示客户端销售页
+  REGISTER_NOTIFY='registerNotify',// 网络变化通知
+  DO_SHARE='doShare',// 调用客户端分享
 }
 
 

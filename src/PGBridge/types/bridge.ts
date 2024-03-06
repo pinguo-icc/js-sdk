@@ -1,4 +1,4 @@
-import { EBridgeType, Environment } from '../constants';
+import { EBridgeType, Environment } from "../constants";
 
 /**
  * # 客户端通讯模型接口
@@ -18,7 +18,11 @@ export interface IBridge {
    * @param type EBridgeType
    * @param dataStr JSONString
    */
-  bridgeCall(type: EBridgeType, data: TJson, config: TBridgeConfigProps): Promise<any>;
+  bridgeCall(
+    type: EBridgeType,
+    data: TJson,
+    config: TBridgeConfigProps
+  ): Promise<any>;
 
   /**
    * # 关闭webview页面
@@ -39,7 +43,7 @@ export interface IBridge {
    * # 获取客户端的公共参数
    * @param defaultParams Object 默认参数
    */
-  getCommonParams(defaultParams?:TObjectKey): Promise<TJson>;
+  getCommonParams(defaultParams?: TObjectKey): Promise<TJson>;
 
   /**
    * # 通过链接保存文件到本地
@@ -111,7 +115,10 @@ export interface IBridge {
    * # 购买订单
    * @alpha 目前只有camera360实现
    */
-  purchase(productId: string, method: 'iap' | 'wechat' | 'alipay'): Promise<TPurchaseResponse>;
+  purchase(
+    productId: string,
+    method: "iap" | "wechat" | "alipay"
+  ): Promise<TPurchaseResponse>;
 
   /**
    * # 获取商品信息
@@ -141,7 +148,23 @@ export interface IBridge {
 
   clearCache(): void;
 
-  playVideoByApp(data:IVideoPlayProps): Promise<any>;
+  playVideoByApp(data: IVideoPlayProps): Promise<any>;
+
+  doScan(callback: Function, keyword?: string, page?: string): Promise<any>;
+
+  saveResource(type: string, id: string): Promise<any>;
+
+  applyResource(type: string, id: string): Promise<any>;
+
+  doLocalCache(url: string[], key: string): Promise<any>;
+
+  setStatusBarStyle(style: string): Promise<any>;
+
+  showSalesPage(): Promise<any>;
+
+  registerNotify(): Promise<any>;
+
+  doShare(text: string): Promise<any>;
 }
 
 export type TBridgeConfigProps = {
@@ -164,14 +187,14 @@ export interface IPurchaseResponseAndroid {
   receipt: string;
   signture: string;
   method: string;
-  reason: '0' | '1' | '2';
+  reason: "0" | "1" | "2";
 }
 
 export interface IPurchaseResponseIos {
   status: boolean;
   receipt: string;
   method: string;
-  reason: '0' | '1' | '2';
+  reason: "0" | "1" | "2";
 }
 
 export type TPurchaseResponse = IPurchaseResponseAndroid | IPurchaseResponseIos;
@@ -184,7 +207,7 @@ export interface IAppProductInfo {
 
 export interface IVideoPlayProps {
   name: string;
-  type: 'bundle' | 'sandbox';
+  type: "bundle" | "sandbox";
   buttonOffset: number;
   buttonRect: {
     top: number;
