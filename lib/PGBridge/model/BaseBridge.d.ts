@@ -1,5 +1,5 @@
-import { EBridgeType, Environment } from '../constants';
-import { IBridge, IVideoPlayProps, TBridgeConfigProps } from '../types/bridge';
+import { EBridgeType, Environment } from "../constants";
+import { callQRParser, IBridge, IVideoPlayProps, TBridgeConfigProps } from "../types/bridge";
 /**
  * # 客户端通讯 基础Model
  */
@@ -69,7 +69,7 @@ export declare class BaseBridge implements IBridge {
      * # 扫码
      * @remark QR_CODE_PARSER
      */
-    qrCodeOpen(callback: Function): Promise<any>;
+    qrCodeOpen(callback: Function, scene?: callQRParser): Promise<any>;
     /**
      * # 关闭扫码
      * @remark QR_CODE_CLOSE
@@ -113,7 +113,7 @@ export declare class BaseBridge implements IBridge {
      * # 购买订单
      * @alpha 目前只有camera360实现
      */
-    purchase(productId: string, method: 'iap' | 'wechat' | 'alipay'): Promise<any>;
+    purchase(productId: string, method: "iap" | "wechat" | "alipay"): Promise<any>;
     /**
      * # 获取商品信息
      * @alpha 目前只有camera360实现
@@ -154,4 +154,50 @@ export declare class BaseBridge implements IBridge {
      * # 唤起客户端的视频播放
      */
     playVideoByApp(data: IVideoPlayProps): Promise<any>;
+    /**
+     * # 客户端识别
+     * @param callback
+     * @param keyword
+     * @param page
+     */
+    doScan(callback: Function, keyword?: string, page?: string): Promise<any>;
+    /**
+     * # 保存用户资源
+     * @param callback
+     * @param type
+     * @param id
+     */
+    saveResource(type: string, id: string): Promise<any>;
+    /**
+     * # 应用用户资源
+     * @param callback
+     * @param type
+     * @param id
+     */
+    applyResource(type: string, id: string): Promise<any>;
+    /**
+     * # 资源缓存(图片|视频)
+     * @param url
+     * @param key
+     */
+    doLocalCache(url: string[], key: string): Promise<any>;
+    /**
+     * # iOS顶部刘海颜色设置
+     * @param style
+     */
+    setStatusBarStyle(style: string): Promise<any>;
+    /**
+     * # 显示客户端销售页
+     */
+    showSalesPage(): Promise<any>;
+    /**
+     * #网络变化通知
+     * @param notifyType
+     */
+    registerNotify(notifyType?: string): Promise<any>;
+    /**
+     * # 调用客户端分享
+     * @param text
+     */
+    doShare(text: string): Promise<any>;
 }

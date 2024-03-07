@@ -156,7 +156,7 @@ export class BaseBridge implements IBridge {
    * # 扫码
    * @remark QR_CODE_PARSER
    */
-  qrCodeOpen(callback: Function, scene: callQRParser) {
+  qrCodeOpen(callback: Function, scene: callQRParser = "album") {
     return this.bridgeCall(
       EBridgeType.QR_CODE_PARSER,
       { scene },
