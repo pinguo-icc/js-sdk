@@ -159,7 +159,7 @@ export class BaseBridge implements IBridge {
   qrCodeOpen(callback: Function, scene: callQRParser) {
     return this.bridgeCall(
       EBridgeType.QR_CODE_PARSER,
-      {},
+      { scene },
       {
         callbackFun: callback,
       }
