@@ -61,7 +61,7 @@ export interface IBridge {
    * # 扫码
    * @remark QR_CODE_PARSER
    */
-  qrCodeOpen(callback: Function): void;
+  qrCodeOpen(callback: Function, scene: callQRParser = "album"): void;
 
   /**
    * # 关闭扫码
@@ -216,3 +216,5 @@ export interface IVideoPlayProps {
     height?: number;
   };
 }
+
+export type callQRParser = "album" | "camera";
