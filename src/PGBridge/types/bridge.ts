@@ -61,7 +61,7 @@ export interface IBridge {
    * # 扫码
    * @remark QR_CODE_PARSER
    */
-  qrCodeOpen(callback: Function, scene: callQRParser = "album"): void;
+  qrCodeOpen(callback: Function, scene: callQRParser): void;
 
   /**
    * # 关闭扫码

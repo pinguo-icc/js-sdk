@@ -1,4 +1,4 @@
-import { EBridgeType, Environment } from '../constants';
+import { EBridgeType, Environment } from "../constants";
 /**
  * # 客户端通讯模型接口
  */
@@ -48,7 +48,7 @@ export interface IBridge {
      * # 扫码
      * @remark QR_CODE_PARSER
      */
-    qrCodeOpen(callback: Function): void;
+    qrCodeOpen(callback: Function, scene: callQRParser): void;
     /**
      * # 关闭扫码
      * @remark QR_CODE_CLOSE
@@ -92,7 +92,7 @@ export interface IBridge {
      * # 购买订单
      * @alpha 目前只有camera360实现
      */
-    purchase(productId: string, method: 'iap' | 'wechat' | 'alipay'): Promise<TPurchaseResponse>;
+    purchase(productId: string, method: "iap" | "wechat" | "alipay"): Promise<TPurchaseResponse>;
     /**
      * # 获取商品信息
      * @alpha 目前只有camera360实现
@@ -115,6 +115,14 @@ export interface IBridge {
     setCache(key: string, value: any): void;
     clearCache(): void;
     playVideoByApp(data: IVideoPlayProps): Promise<any>;
+    doScan(callback: Function, keyword?: string, page?: string): Promise<any>;
+    saveResource(type: string, id: string): Promise<any>;
+    applyResource(type: string, id: string): Promise<any>;
+    doLocalCache(url: string[], key: string): Promise<any>;
+    setStatusBarStyle(style: string): Promise<any>;
+    showSalesPage(): Promise<any>;
+    registerNotify(): Promise<any>;
+    doShare(text: string): Promise<any>;
 }
 export type TBridgeConfigProps = {
     hasCallback?: boolean;
@@ -134,13 +142,13 @@ export interface IPurchaseResponseAndroid {
     receipt: string;
     signture: string;
     method: string;
-    reason: '0' | '1' | '2';
+    reason: "0" | "1" | "2";
 }
 export interface IPurchaseResponseIos {
     status: boolean;
     receipt: string;
     method: string;
-    reason: '0' | '1' | '2';
+    reason: "0" | "1" | "2";
 }
 export type TPurchaseResponse = IPurchaseResponseAndroid | IPurchaseResponseIos;
 export interface IAppProductInfo {
@@ -150,7 +158,7 @@ export interface IAppProductInfo {
 }
 export interface IVideoPlayProps {
     name: string;
-    type: 'bundle' | 'sandbox';
+    type: "bundle" | "sandbox";
     buttonOffset: number;
     buttonRect: {
         top: number;
@@ -159,3 +167,4 @@ export interface IVideoPlayProps {
         height?: number;
     };
 }
+export type callQRParser = "album" | "camera";
