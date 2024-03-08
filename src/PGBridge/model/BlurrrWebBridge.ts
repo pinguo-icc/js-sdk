@@ -1,9 +1,9 @@
 import { JSONParse, JSONStringify } from "../common/tool";
 import { EBridgeType, Environment } from "../constants";
 import { IBaseBridge } from "../types/baseBridge";
-import { BaseBridge } from "./BaseBridge";
+import BlurrrIosBridge from "./BlurrrIosBridge";
 
-export default class BlurrrWebBridge extends BaseBridge implements IBaseBridge {
+export default class BlurrrWebBridge extends BlurrrIosBridge implements IBaseBridge {
   get(type: EBridgeType) {
     return () => {};
   }

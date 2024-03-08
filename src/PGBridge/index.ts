@@ -3,6 +3,7 @@ import { BaseBridge } from "./model/BaseBridge";
 import BlurrrIosBridge from "./model/BlurrrIosBridge";
 import BlurrrWebBridge from "./model/BlurrrWebBridge";
 import { TBridge } from "./types";
+import { IBlurrrBridge } from "./types/blurrrBridge";
 
 class PGBridge {
   static bridgeMap = {
@@ -12,6 +13,12 @@ class PGBridge {
 
   static EBridgeType = EBridgeType;
 
+  /**
+   * # 实例化 Bridge 的工厂函数
+   * @param app 产品名称
+   * @param platform 平台
+   * @returns
+   */
   static createBridge(app: string, platform: string = this.getPlatform()): TBridge {
     const bridgeKey = `${app}-${platform}` as ObjectKeys<typeof PGBridge.bridgeMap>;
     const bridgeConstructor = PGBridge.bridgeMap[bridgeKey];
@@ -20,6 +27,14 @@ class PGBridge {
       return new BaseBridge();
     }
     return new bridgeConstructor();
+  }
+
+  /**
+   * # 针对blurrr的创建函数
+   * @returns
+   */
+  static createBlurrrBridge() {
+    return this.createBridge("blurrr") as IBlurrrBridge;
   }
 
   static getPlatform() {

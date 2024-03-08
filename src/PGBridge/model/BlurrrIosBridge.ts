@@ -23,9 +23,8 @@ export default class BlurrrIosBridge extends BaseBridge implements IBlurrrBridge
    * @param keyword
    * @param page
    */
-  doScanWithKeyWord(callback: Function, keyword: string, page?: string) {
+  doScanWithKeyWord(keyword: string, page?: string) {
     return this.bridgeCall(EBridgeType.DO_SCAN, {
-      callback,
       keyword,
       page,
     });
@@ -37,9 +36,8 @@ export default class BlurrrIosBridge extends BaseBridge implements IBlurrrBridge
    * @param keyword
    * @param page
    */
-  doScanWithQRInfo(callback: Function, QRInfo: string, page?: string) {
+  doScanWithQRInfo(QRInfo: string, page?: string) {
     return this.bridgeCall(EBridgeType.DO_SCAN, {
-      callback,
       QRInfo,
       page,
     });

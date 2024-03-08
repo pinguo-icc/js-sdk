@@ -1,7 +1,7 @@
 import { EBridgeType } from "../constants";
 import { IBaseBridge } from "../types/baseBridge";
-import { BaseBridge } from "./BaseBridge";
-export default class BlurrrWebBridge extends BaseBridge implements IBaseBridge {
+import BlurrrIosBridge from "./BlurrrIosBridge";
+export default class BlurrrWebBridge extends BlurrrIosBridge implements IBaseBridge {
     get(type: EBridgeType): () => void;
     execute(type: EBridgeType, dataStr: string): void;
     getUserInfo(): Promise<{

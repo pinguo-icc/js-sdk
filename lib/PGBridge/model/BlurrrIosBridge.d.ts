@@ -15,14 +15,14 @@ export default class BlurrrIosBridge extends BaseBridge implements IBlurrrBridge
      * @param keyword
      * @param page
      */
-    doScanWithKeyWord(callback: Function, keyword: string, page?: string): Promise<any>;
+    doScanWithKeyWord(keyword: string, page?: string): Promise<any>;
     /**
      * # 客户端识别 By 二维码信息
      * @param callback
      * @param keyword
      * @param page
      */
-    doScanWithQRInfo(callback: Function, QRInfo: string, page?: string): Promise<any>;
+    doScanWithQRInfo(QRInfo: string, page?: string): Promise<any>;
     /**
      * # 保存用户资源
      * @param callback
