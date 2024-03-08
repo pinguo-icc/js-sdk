@@ -2,7 +2,7 @@ import { EBridgeType, Environment } from "../constants";
 /**
  * # 客户端通讯模型接口
  */
-export interface IBridge {
+export interface IBaseBridge {
     /**
      * # 获取客户端注入的方法
      * @internal

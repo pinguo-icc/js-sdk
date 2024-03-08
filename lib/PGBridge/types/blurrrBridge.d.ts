@@ -1,5 +1,5 @@
-import { IBridge } from "./bridge";
-export interface IBlurrrBridge extends IBridge {
+import { IBaseBridge } from "./baseBridge";
+export interface IBlurrrBridge extends IBaseBridge {
     doScanWithKeyWord(callback: Function, keyword: string, page?: string): Promise<any>;
     doScanWithQRInfo(callback: Function, QRInfo: string, page?: string): Promise<any>;
     saveResource(type: string, id: string): Promise<any>;

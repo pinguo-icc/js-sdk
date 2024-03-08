@@ -1,11 +1,11 @@
 import { JSONParse, JSONStringify } from "../common/tool";
 import { EBridgeType, Environment } from "../constants";
-import { callQRParser, IBridge, IVideoPlayProps, TBridgeConfigProps } from "../types/bridge";
+import { callQRParser, IBaseBridge, IVideoPlayProps, TBridgeConfigProps } from "../types/baseBridge";
 
 /**
  * # 客户端通讯 基础Model
  */
-export class BaseBridge implements IBridge {
+export class BaseBridge implements IBaseBridge {
   /**
    * # 获取客户端注入的方法
    * @param type EBridgeType
