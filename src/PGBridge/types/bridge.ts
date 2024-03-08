@@ -18,11 +18,7 @@ export interface IBridge {
    * @param type EBridgeType
    * @param dataStr JSONString
    */
-  bridgeCall(
-    type: EBridgeType,
-    data: TJson,
-    config: TBridgeConfigProps
-  ): Promise<any>;
+  bridgeCall(type: EBridgeType, data: TJson, config: TBridgeConfigProps): Promise<any>;
 
   /**
    * # 关闭webview页面
@@ -115,10 +111,7 @@ export interface IBridge {
    * # 购买订单
    * @alpha 目前只有camera360实现
    */
-  purchase(
-    productId: string,
-    method: "iap" | "wechat" | "alipay"
-  ): Promise<TPurchaseResponse>;
+  purchase(productId: string, method: "iap" | "wechat" | "alipay"): Promise<TPurchaseResponse>;
 
   /**
    * # 获取商品信息
@@ -149,22 +142,6 @@ export interface IBridge {
   clearCache(): void;
 
   playVideoByApp(data: IVideoPlayProps): Promise<any>;
-
-  doScan(callback: Function, keyword?: string, page?: string): Promise<any>;
-
-  saveResource(type: string, id: string): Promise<any>;
-
-  applyResource(type: string, id: string): Promise<any>;
-
-  doLocalCache(url: string[], key: string): Promise<any>;
-
-  setStatusBarStyle(style: string): Promise<any>;
-
-  showSalesPage(): Promise<any>;
-
-  registerNotify(): Promise<any>;
-
-  doShare(text: string): Promise<any>;
 }
 
 export type TBridgeConfigProps = {

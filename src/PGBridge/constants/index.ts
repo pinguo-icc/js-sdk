@@ -32,6 +32,7 @@ export enum EBridgeType {
   SHOW_SALES_PAGE='showSalesPage',// 显示客户端销售页
   REGISTER_NOTIFY='registerNotify',// 网络变化通知
   DO_SHARE='doShare',// 调用客户端分享
+  SET_HOME_TAB_BAR = "setHomeTabbarStatus", // 设置APP底部导航的切换
 }
 
 
