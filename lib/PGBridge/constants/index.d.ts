@@ -31,7 +31,8 @@ export declare enum EBridgeType {
     SET_STATUS_BAR_STYLE = "setStatusBarStyle",
     SHOW_SALES_PAGE = "showSalesPage",
     REGISTER_NOTIFY = "registerNotify",
-    DO_SHARE = "doShare"
+    DO_SHARE = "doShare",
+    SET_HOME_TAB_BAR = "setHomeTabbarStatus"
 }
 export declare enum Environment {
     Prod = "release",

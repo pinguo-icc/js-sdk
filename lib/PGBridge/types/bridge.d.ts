@@ -115,14 +115,6 @@ export interface IBridge {
     setCache(key: string, value: any): void;
     clearCache(): void;
     playVideoByApp(data: IVideoPlayProps): Promise<any>;
-    doScan(callback: Function, keyword?: string, page?: string): Promise<any>;
-    saveResource(type: string, id: string): Promise<any>;
-    applyResource(type: string, id: string): Promise<any>;
-    doLocalCache(url: string[], key: string): Promise<any>;
-    setStatusBarStyle(style: string): Promise<any>;
-    showSalesPage(): Promise<any>;
-    registerNotify(): Promise<any>;
-    doShare(text: string): Promise<any>;
 }
 export type TBridgeConfigProps = {
     hasCallback?: boolean;
