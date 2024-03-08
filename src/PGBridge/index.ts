@@ -13,7 +13,7 @@ class PGBridge {
 
   static EBridgeType = EBridgeType;
 
-  static createBridge(app: string, platform: string = this.getPlatform()): IBridge | IBlurrrBridge {
+  static createBridge(app: string, platform: string = this.getPlatform()) {
     const bridgeKey = `${app}-${platform}` as ObjectKeys<typeof PGBridge.bridgeMap>;
     const bridgeConstructor = PGBridge.bridgeMap[bridgeKey];
     if (!bridgeConstructor) {
