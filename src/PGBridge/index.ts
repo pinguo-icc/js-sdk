@@ -2,6 +2,7 @@ import { EBridgeType } from "./constants";
 import { BaseBridge } from "./model/BaseBridge";
 import BlurrrIosBridge from "./model/BlurrrIosBridge";
 import BlurrrWebBridge from "./model/BlurrrWebBridge";
+import { IBlurrrBridge } from "./types/blurrrBridge";
 import { IBridge } from "./types/bridge";
 
 class PGBridge {
@@ -12,7 +13,7 @@ class PGBridge {
 
   static EBridgeType = EBridgeType;
 
-  static createBridge(app: string, platform: string = this.getPlatform()): IBridge {
+  static createBridge(app: string, platform: string = this.getPlatform()): IBridge | IBlurrrBridge {
     const bridgeKey = `${app}-${platform}` as ObjectKeys<typeof PGBridge.bridgeMap>;
     const bridgeConstructor = PGBridge.bridgeMap[bridgeKey];
     if (!bridgeConstructor) {
