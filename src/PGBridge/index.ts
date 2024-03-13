@@ -43,7 +43,7 @@ class PGBridge {
     if (window.webkit && /pinguo/.test(ua)) {
       if (/android/.test(ua)) {
         return "android";
-      } else if (/iphone|ipad|ipod/.test(ua)) {
+      } else if (/iphone|ipad|ipod|mac/.test(ua)) {
         return "ios";
       }
     } // 如果不是统一按照web处理
