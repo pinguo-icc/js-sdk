@@ -1,6 +1,6 @@
 {
   "name": "js-sdk",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "",
   "main": "lib/js-sdk.common.js",
   "types": "lib/index.d.ts",

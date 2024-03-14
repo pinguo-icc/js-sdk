@@ -20,6 +20,9 @@ class PGBridge {
    * @returns
    */
   static createBridge(app: string, platform: string = this.getPlatform()): TBridge {
+    setTimeout(() => {
+      console.log(`app: ${app}, platform: ${platform}`);
+    }, 500);
     const bridgeKey = `${app}-${platform}` as ObjectKeys<typeof PGBridge.bridgeMap>;
     const bridgeConstructor = PGBridge.bridgeMap[bridgeKey];
     if (!bridgeConstructor) {
@@ -39,6 +42,9 @@ class PGBridge {
 
   static getPlatform() {
     const ua = window.navigator.userAgent.toLowerCase();
+    setTimeout(() => {
+      console.log(`ua: ${ua}`);
+    }, 500);
     // 这里判断是否在内部APP容器中
     if (window.webkit && /pinguo/.test(ua)) {
       if (/android/.test(ua)) {
