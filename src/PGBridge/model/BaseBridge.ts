@@ -1,6 +1,11 @@
 import { JSONParse, JSONStringify } from "../common/tool";
 import { EBridgeType, Environment } from "../constants";
-import { callQRParser, IBaseBridge, IVideoPlayProps, TBridgeConfigProps } from "../types/baseBridge";
+import {
+  callQRParser,
+  IBaseBridge,
+  IVideoPlayProps,
+  TBridgeConfigProps,
+} from "../types/baseBridge";
 
 /**
  * # 客户端通讯 基础Model
@@ -97,7 +102,13 @@ export class BaseBridge implements IBaseBridge {
    * # 关闭webview页面
    */
   closePage() {
-    this.bridgeCall(EBridgeType.CLOSE, {}, { hasCallback: false });
+    this.bridgeCall(
+      EBridgeType.CLOSE,
+      {
+        _msg: "这条消息由前端发送，仅用于测试关闭接口调用",
+      },
+      { hasCallback: false }
+    );
   }
 
   /**

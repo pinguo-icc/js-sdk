@@ -4,6 +4,7 @@ import BlurrrWebBridge from "./model/BlurrrWebBridge";
 import { TBridge } from "./types";
 import { IBlurrrBridge } from "./types/blurrrBridge";
 declare class PGBridge {
+    static version: string;
     static bridgeMap: {
         "blurrr-ios": typeof BlurrrIosBridge;
         "blurrr-web": typeof BlurrrWebBridge;

@@ -1,6 +1,6 @@
 {
   "name": "js-sdk",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "main": "lib/js-sdk.common.js",
   "types": "lib/index.d.ts",
@@ -27,6 +27,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.5",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.16.0",
     "@types/rollup": "^0.54.0",

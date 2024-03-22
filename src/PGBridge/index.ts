@@ -6,6 +6,9 @@ import { TBridge } from "./types";
 import { IBlurrrBridge } from "./types/blurrrBridge";
 
 class PGBridge {
+
+  static version = '__VERSION__';
+
   static bridgeMap = {
     "blurrr-ios": BlurrrIosBridge,
     "blurrr-web": BlurrrWebBridge,

@@ -13,6 +13,7 @@ import delFile from "rollup-plugin-delete"; // 清理文件
 import visualizer from "rollup-plugin-visualizer"; // 模块占用分析
 import { terser } from "rollup-plugin-terser"; // 代码压缩
 import progress from "rollup-plugin-progress"; // 打包进度条
+import replace from '@rollup/plugin-replace'; // 全局注入版本号
 
 const TOOL_NAME = "js-sdk";
 export default {
@@ -57,6 +58,9 @@ export default {
       exclude: "node_modules/**",
       babelHelpers: "bundled",
       bundled: "auto",
+    }),
+    replace({
+      __VERSION__: require("./package.json").version,
     }),
     visualizer({
       filename: `lib/${TOOL_NAME}-stats.html`,
