@@ -8,7 +8,7 @@ export interface IBlurrrBridge extends IBaseBridge {
     setStatusBarStyle(style: string): Promise<any>;
     showSalesPage(): Promise<any>;
     registerNotify(): Promise<any>;
-    doShare(text: string): Promise<any>;
+    doShare(text: string, rect: Rect): Promise<any>;
     showHomeTabBar(): void;
     hideHomeTabBar(): void;
 }
