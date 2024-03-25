@@ -32,6 +32,9 @@ export class BaseBridge implements IBaseBridge {
    * @remark 一般只需要重构 get 和 execute 方法来实现不同平台的兼容
    */
   execute(type: EBridgeType, dataStr: string) {
+    if(window?.webkit?.messageHandlers["debugLogger"]) {
+      window?.webkit?.messageHandlers["debugLogger"](type,dataStr)
+    }
     return window.webkit.messageHandlers[type].postMessage(dataStr);
   }
 
