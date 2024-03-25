@@ -17,7 +17,7 @@ export interface IBlurrrBridge extends IBaseBridge {
 
   registerNotify(): Promise<any>;
 
-  doShare(text: string): Promise<any>;
+  doShare(text: string, rect: Rect): Promise<any>;
 
   showHomeTabBar(): void;
 

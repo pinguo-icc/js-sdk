@@ -112,11 +112,13 @@ export default class BlurrrIosBridge extends BaseBridge implements IBlurrrBridge
   /**
    * # 调用客户端分享
    * @param text
+   * @param rect
    */
 
-  doShare(text: string) {
+  doShare(text: string, rect: Rect) {
     return this.bridgeCall(EBridgeType.DO_SHARE, {
       text,
+      rect,
     });
   }
 

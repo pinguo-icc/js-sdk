@@ -60,8 +60,9 @@ export default class BlurrrIosBridge extends BaseBridge implements IBlurrrBridge
     /**
      * # 调用客户端分享
      * @param text
+     * @param rect
      */
-    doShare(text: string): Promise<any>;
+    doShare(text: string, rect: Rect): Promise<any>;
     /**
      * # 显示客户端的TabBar
      */
